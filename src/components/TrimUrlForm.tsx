@@ -47,10 +47,6 @@ const TrimUrlForm: React.FC = () => {
     setGenerator(AlphaNumericGenerator(8));
     setTrimmedValue(true)
 
-    //const generator = AlphaNumericGenerator(8)
-    //const urlGenerator = `${generator}`
-   // console.log(urlGenerator)
-
   };
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setInputValue(event.target.value);
