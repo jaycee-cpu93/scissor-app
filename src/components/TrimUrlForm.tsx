@@ -27,10 +27,11 @@ const TrimUrlForm: React.FC = () => {
 
   useEffect(()=> {
     const updateData = async () => {
-      await setDoc(doc(db, 'url-collection', AlphaNumericGenerator(4)),{
+      if (oldUrl !== "" && generator !== ""){
+        await setDoc(doc(db, 'url-collection', AlphaNumericGenerator(4)),{
         old: oldUrl,
         new: generator,
-      })
+      })}
     };
     updateData();
   }, [oldUrl, generator])
@@ -103,11 +104,10 @@ const TrimUrlForm: React.FC = () => {
                       {error && <p className="text-red-500 text-sm">{error}</p>}
                   </div>
                   <div className='grid grid-cols-2 space-x-4'>
-                {trimmedValue && <button type='button'  className='bg-[#252424] px-10 py-3 rounded-[6.25em] text-white font-gilroySemiBold'><span className='flex gap-4 justify-center'><Link to={`/${generator}`}>{generator}</Link></span></button>}
+                      {trimmedValue && <button type='button'  className='bg-[#252424] px-10 py-3 rounded-[6.25em] text-white font-gilroySemiBold'><span className='flex gap-4 justify-center'><Link to={`/${generator}`}>{generator}</Link></span></button>}
                       <select className='border-[1px] border-primary border-solid rounded-xl py-4 px-6 text-xs text-primary font-gilroyMedium'>
                           <option disabled>Choose Domain</option>
-                          <option>option 1</option>
-                          <option>option 2</option>
+                          <option>scissor-app-project.netlify.app/</option>
                       </select>
                       {!trimmedValue && <input className='border-[0.0625em] border-primary border-solid rounded-xl py-4 px-6 placeholder:text-primary placeholder:font-gilroyMedium placeholder:text-xs' placeholder='Type Alias here'/>}
                   </div>
