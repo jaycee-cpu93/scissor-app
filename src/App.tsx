@@ -7,7 +7,6 @@ import SignUp from './views/SignUp';
 import ErrorPage from './pages/ErrorPage';
 import HandleUrl from './components/HandleUrl';
 import History from './components/History';
-import Redirect from './components/Redirect';
 //import {initializeApp} from 'firebase/app' 
 
 const router = createBrowserRouter([
@@ -18,7 +17,6 @@ const router = createBrowserRouter([
   { path: "/:shortened_url", element: <HandleUrl/> },
   { path: "/url-history", element: <History/> },
   { path: "/get-in-touch", element: <GetInTouch/> },
-  { path: "/redirect", element: <Redirect/> },
 
 ])
 function App() {

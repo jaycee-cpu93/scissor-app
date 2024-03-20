@@ -1,11 +1,11 @@
-import React, {useEffect, useState} from 'react';
+import {useEffect, useState} from 'react';
 import {db} from '../utils/Firebase'
 import { collection, getDocs } from "firebase/firestore";
 import  { Link} from 'react-router-dom'
 import Nav from './Nav';
 import Footer from './Footer';
 
-const History = () => {
+const History: React.FC = () => {
     const [data, setData] = useState<string[]>([])
     useEffect(() => {
         const fetchData = async () => {
@@ -26,7 +26,7 @@ const History = () => {
            <Nav /> 
            <h2 className='my-10 text-center text-primary font-gilroyBold text-2xl'>My Links</h2>
             <ol >
-                {data.map((item: string, index) =>
+                {data.map((item: any, index) =>
                     (
                     <li key={index}>
                         <div className='bg-blue-300 rounded-lg p-4 my-4 flex flex-col items-center'>

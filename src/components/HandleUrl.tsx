@@ -1,19 +1,14 @@
-import React, {useEffect, useState} from 'react';
-import {useNavigate, useParams} from 'react-router-dom';
-import {db} from '../utils/Firebase'
-import { collection, doc, getDoc, getDocs } from "firebase/firestore";
-import  { redirect } from 'react-router-dom'
+import { collection, getDocs } from "firebase/firestore";
+import { useEffect} from 'react';
+import { useParams } from 'react-router-dom';
+import { db } from '../utils/Firebase';
 
 const HandleUrl: React.FC = () => {
-    const [params, setParams] = useState('')
-    interface ParamTypes {
-        shortUrl: string;
-    }
     console.log(useParams())
     const {shortened_url} = useParams()
     console.log(shortened_url)
 
-    const redirectToExternalLink = (url) => {
+    const redirectToExternalLink = (url: any) => {
         window.location.href = url;
       }; 
       
@@ -23,8 +18,6 @@ const HandleUrl: React.FC = () => {
             //const q = query(allDoc)
             const allDocsSnap = await getDocs(allDoc);
             allDocsSnap.forEach((item) => {
-                console.log(item.data())
-                const temp = item.data()
                 if (shortened_url === item.data().new) {
                     redirectToExternalLink(item.data().old)
                 }
@@ -34,7 +27,6 @@ const HandleUrl: React.FC = () => {
     }, []);
   return (
     <div>
-        {params}
         <h3 className='text-2xl text-green-500'>Redirecting...</h3>
     </div>
   )
