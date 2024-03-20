@@ -1,0 +1,19 @@
+@font-face {
+  font-family: gilroy-bold;
+  src: url("./assets/gilroy/Gilroy-Bold.ttf") format("truetype");
+}
+@font-face {
+  font-family: gilroy-semibold;
+  src: url("./assets/gilroy/Gilroy-SemiBold.ttf") format("truetype");
+}
+@font-face {
+  font-family: gilroy-medium;
+  src: url("./assets/gilroy/Gilroy-Medium.ttf") format("truetype");
+}
+@font-face {
+  font-family: proxima-nova;
+  src: url("./assets/proxima-vova-font.otf") format("truetype");
+}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
